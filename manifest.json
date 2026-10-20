@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "tetraslam.signins",
+  "name": "Sign-ins",
+  "version": "0.1.0",
+  "author": "Shresht Bhowmick",
+  "license": "MIT",
+  "description": "A quiet key in the bar only while a command-line sign-in has lapsed (gcloud, GitHub CLI, Tailscale, OpenCode MCP servers), with one-key fixes. Ignore the ones you don't care about.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Sign-ins",
+    "description": "Shows up only when gcloud, gh, Tailscale or an OpenCode MCP server needs you to sign in again.",
+    "category": "System",
+    "aliases": [
+      "signins",
+      "auth",
+      "login",
+      "gcloud",
+      "credentials"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "checkMinutes": 10,
+      "notify": false,
+      "ignored": []
+    },
+    "schema": [
+      {
+        "key": "checkMinutes",
+        "type": "integer",
+        "label": "Check every (minutes)",
+        "min": 5,
+        "max": 120,
+        "step": 5,
+        "defaultValue": 10
+      },
+      {
+        "key": "notify",
+        "type": "boolean",
+        "label": "Notify when a sign-in lapses",
+        "defaultValue": false
+      }
+    ]
+  }
+}
